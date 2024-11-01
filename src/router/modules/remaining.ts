@@ -42,7 +42,7 @@ export default [
   {
     path: "/account-settings",
     name: "AccountSettings",
-    component: () => import("@/views/account-settings/index.vue"),
+    component: () => import("@/views/system/account-settings/index.vue"),
     meta: {
       title: $t("buttons.pureAccountSettings"),
       showLink: false,
