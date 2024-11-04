@@ -1,25 +1,5 @@
 import { http } from "@/utils/http";
-import {baseApiUrl} from "@/api/utils"
-
-type Result = {
-  success: boolean;
-  data?: Array<any>;
-};
-
-type ResultTable = {
-  success: boolean;
-  data?: {
-    /** 列表数据 */
-    list: Array<any>;
-    /** 总条目数 */
-    total?: number;
-    /** 每页显示条目个数 */
-    pageSize?: number;
-    /** 当前页数 */
-    currentPage?: number;
-  };
-};
-
+import {baseApiUrl,Result,ResultTable} from "@/api/utils"
 
 /** 应用管理列表 */
 export const getAppList = (data?: object) => {
@@ -43,7 +23,7 @@ export const saveStatus = (data?: object) => {
 
 /** 获取所有应用 */
 export const getAllAppList = () => {
-  return http.request<Result>("get",  baseApiUrl("/assets/v1/app//list-all"));
+  return http.request<Result>("get",  baseApiUrl("/assets/v1/app/list-all"));
 };
 
 
