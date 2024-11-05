@@ -133,7 +133,7 @@ onMounted(() => {
         >
           搜索
         </el-button>
-        <el-button :icon="useRenderIcon(Refresh)" @click="resetForm(formRef)">
+        <el-button :icon="useRenderIcon('ep:refresh')" @click="resetForm(formRef)">
           重置
         </el-button>
       </el-form-item>
