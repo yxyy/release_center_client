@@ -177,6 +177,13 @@ class PureHttp {
             }
           } else {
             // 正在刷新 token，等待新的 token 然后重新发送请求
+            //如果本身是 refresh 请求失败
+            if ($error.response.config.url.includes("refresh")){
+              removeToken()
+              PureHttp.isRefreshing = false;
+              window.location.href = '/login';
+              return Promise.reject($error);
+            }
             return new Promise(resolve => {
               PureHttp.requests.push((token: string) => {
                 $error.config.headers["Authorization"] = formatToken(token);
