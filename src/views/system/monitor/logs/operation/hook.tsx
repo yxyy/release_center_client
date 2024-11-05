@@ -10,12 +10,31 @@ export function useRole(tableRef: Ref) {
   const form = reactive({
     module: "",
     status: "",
-    operatingTime: ""
+    operatingTime: "",
+    page: 1,
+    limit: 10
   });
   const dataList = ref([]);
   const loading = ref(true);
   const selectedNum = ref(0);
   const { tagStyle } = usePublicHooks();
+
+  const logType = [
+    '未知',
+    '查询',
+    '增加',
+    '修改',
+    '删除',
+    '登录',
+    '刷新',
+  ]
+
+  const buttonStatusIcon = [
+    'primary',
+    'success',
+    'danger',
+    'warning',
+  ]
 
   const pagination = reactive<PaginationProps>({
     total: 0,
@@ -53,7 +72,16 @@ export function useRole(tableRef: Ref) {
     {
       label: "操作概要",
       prop: "log_type",
-      minWidth: 140
+      minWidth: 140,
+      cellRenderer: ({ row, props }) => (
+        <el-tag
+          size={props.size}
+          type={buttonStatusIcon[row.log_type]}
+          effect="plain"
+        >
+          { logType[row.log_type] }
+        </el-tag>
+      )
     },
     {
       label: "操作 IP",
@@ -72,32 +100,32 @@ export function useRole(tableRef: Ref) {
     },
     {
       label: "浏览器类型",
-      prop: "browser",
-      minWidth: 100
+      prop: "user_agent",
+      minWidth: 200
     },
     {
       label: "操作状态",
       prop: "status",
       minWidth: 100,
       cellRenderer: ({ row, props }) => (
-        <el-tag size={props.size} style={tagStyle.value(row.status)}>
-          {row.status === 1 ? "成功" : "失败"}
+        <el-tag size={props.size} style={tagStyle.value(row.status === 200 ? 1 : 0 )}>
+          {row.status === 200 ? "成功" : "失败"}
         </el-tag>
       )
     },
     {
       label: "请求参数",
-      prop: "browser",
-      minWidth: 100
+      prop: "request",
+      maxWidth: 150
     },
     {
       label: "请求响应",
-      prop: "browser",
-      minWidth: 100
+      prop: "response",
+      maxWidth: 200
     },
     {
       label: "操作时间",
-      prop: "operatingTime",
+      prop: "created_at",
       minWidth: 180,
       formatter: ({ operatingTime }) =>
         dayjs(operatingTime).format("YYYY-MM-DD HH:mm:ss")
@@ -106,10 +134,14 @@ export function useRole(tableRef: Ref) {
 
   function handleSizeChange(val: number) {
     console.log(`${val} items per page`);
+    form.limit = val
+    onSearch()
   }
 
   function handleCurrentChange(val: number) {
     console.log(`current page: ${val}`);
+    form.page = val
+    onSearch()
   }
 
   /** 当CheckBox选择项发生变化时会触发该事件 */
