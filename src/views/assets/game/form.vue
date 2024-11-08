@@ -53,7 +53,7 @@ defineExpose({ getRef });
       />
     </el-form-item>
 
-    <el-form-item label="系统类型">
+    <el-form-item label="系统类型" prop="os">
       <el-select
         v-model="newFormInline.os"
         placeholder="请选择系统类型"
@@ -85,7 +85,7 @@ defineExpose({ getRef });
       </el-select>
     </el-form-item>
 
-    <el-form-item label="归属应用">
+    <el-form-item label="归属应用" prop="app_id">
       <el-select
         v-model="newFormInline.app_id"
         placeholder="请选择归属应用"
@@ -125,7 +125,7 @@ defineExpose({ getRef });
       </el-select>
     </el-form-item>
 
-    <el-form-item label="发货地址">
+    <el-form-item label="发货地址" prop="cp_callback_url">
       <el-input
         v-model="newFormInline.cp_callback_url"
         clearable
