@@ -239,7 +239,6 @@ export function useGame() {
   });
 
   return {
-    os,
     form,
     curRow,
     appInfo,

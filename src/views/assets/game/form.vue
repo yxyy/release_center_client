@@ -3,7 +3,8 @@ import { ref } from "vue";
 import { formRules } from "./utils/rule";
 import { FormProps } from "./utils/types";
 import {useGame} from "@/views/assets/game/utils/hook";
-const {os,gameStatus,appInfo} = useGame()
+const {gameStatus,appInfo} = useGame()
+import {os} from "@/utils/status";
 
 const props = withDefaults(defineProps<FormProps>(), {
   formInline: () => ({
