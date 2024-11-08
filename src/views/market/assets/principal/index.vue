@@ -20,7 +20,6 @@ const contentRef = ref();
 const {
   form,
   loading,
-  gameStatus,
   columns,
   rowStyle,
   dataList,
