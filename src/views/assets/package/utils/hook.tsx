@@ -9,7 +9,7 @@ import {getPackageList, createPackage, updatePackage} from "@/api/assets/package
 import { reactive, ref, onMounted, h, toRaw} from "vue";
 import {getAllGameList} from "@/api/assets/game";
 import {getAllChannelList} from "@/api/assets/channel";
-import {buttonStatusIcon, packStatusMessage, buttonPackStatusIcon} from "@/utils/status";
+import {buttonStatusIcon, packStatusMessage, buttonPackStatusIcon,os} from "@/utils/status";
 
 export function usePackage() {
   const form = reactive({
@@ -60,6 +60,20 @@ export function usePackage() {
     {
       label: "推广渠道",
       prop: "channel_name"
+    },
+    {
+      label: "系统类型",
+      prop: "os",
+      minWidth: 90,
+      cellRenderer: ({ row, props }) => (
+        <el-tag
+          size={props.size}
+          type={buttonStatusIcon[row.os]}
+          effect="plain"
+        >
+          { os[row.os].name }
+        </el-tag>
+      )
     },
     {
       label: "包状态",
