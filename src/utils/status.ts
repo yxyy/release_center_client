@@ -8,6 +8,7 @@ export const buttonStatusIcon = [
   'danger',
   'warning',
   'primary',
+  'info',
 ]
 
 
@@ -27,3 +28,13 @@ export const openStatusMessage = [
   '开启',
   '关闭',
 ]
+
+
+export const os = {
+  1: {id: 1, name: '安卓'},
+  2: {id: 2, name: '苹果'},
+  3: {id: 4, name: '鸿蒙'},
+  4: {id: 3, name: 'H5'},
+  5: {id: 4, name: '小程序'},
+
+}

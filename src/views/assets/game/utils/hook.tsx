@@ -8,6 +8,7 @@ import {  deviceDetection } from "@pureadmin/utils";
 import {getGameList, createGame, updateGame} from "@/api/assets/game";
 import { reactive, ref, onMounted, h, toRaw} from "vue";
 import {getAllAppList} from "@/api/assets/app";
+import {buttonStatusIcon,os} from "@/utils/status";
 
 export function useGame() {
   const form = reactive({
@@ -24,18 +25,6 @@ export function useGame() {
     '投放中',
     '下架了',
   ]
-  const buttonStatusIcon = [
-    'primary',
-    'success',
-    'danger',
-    'warning',
-  ]
-  const os = {
-    1:{id:1,name:'安卓'},
-    2:{id:2,name:'苹果'},
-    3:{id:3,name:'H5'},
-    4:{id:4,name:'小程序'},
-  }
 
   let appInfo = ref([]);
 
