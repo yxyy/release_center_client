@@ -38,3 +38,10 @@ export const os = {
   5: {id: 5, name: '小程序'},
 
 }
+
+export const contractStatus = [
+  '商务初审',
+  '法务二审',
+  '审核完成',
+  '已归档',
+]

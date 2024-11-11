@@ -3,7 +3,7 @@ import {baseApiUrl,Result,ResultTable} from "@/api/utils"
 
 /** 游戏管理列表 */
 export const getChannelList = (data?: object) => {
-  return http.request<ResultTable>("post", baseApiUrl("/assets/v1/channel/list1"), { data });
+  return http.request<ResultTable>("post", baseApiUrl("/assets/v1/channel/list"), { data });
 };
 
 /** 新增应用 */
