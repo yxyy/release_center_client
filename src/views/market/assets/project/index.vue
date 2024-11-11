@@ -10,7 +10,7 @@ import EditPen from "@iconify-icons/ep/edit-pen";
 import AddFill from "@iconify-icons/ri/add-circle-line";
 
 defineOptions({
-  name: "MarketProxyProject"
+  name: "MarketProject"
 });
 
 const formRef = ref();
