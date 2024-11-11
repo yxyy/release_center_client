@@ -121,7 +121,7 @@ const {
 
     <div ref="contentRef">
       <PureTableBar
-        title="代理项目管理"
+        title="推广项目管理"
         :columns="columns"
         @refresh="onSearch"
       >
