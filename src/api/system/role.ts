@@ -23,28 +23,28 @@ type ResultTable = {
 
 /** 获取系统管理-用户管理列表 */
 export const getRoleList = (data?: object) => {
-  return http.request<ResultTable>("post", baseApiUrl("/system/v1/role/list"), { data });
+  return http.request<ResultTable>("post", baseApiUrl("/system/v1/role/list"), {data});
 };
 
 /** 获取系统管理-用户管理列表 */
 export const createRole = (data?: object) => {
-  return http.request<ResultTable>("post", baseApiUrl("/system/v1/role/create"), { data });
+  return http.request<ResultTable>("post", baseApiUrl("/system/v1/role/create"), {data});
 };
 
 /** 获取系统管理-用户管理列表 */
 export const updateRole = (data?: object) => {
-  return http.request<ResultTable>("post", baseApiUrl("/system/v1/role/update"), { data });
+  return http.request<ResultTable>("post", baseApiUrl("/system/v1/role/update"), {data});
 };
 
 
 /** 用户-分配菜单权限 */
 export const saveRoleMenu = (data?: object) => {
-  return http.request<ResultTable>("post", baseApiUrl("/system/v1/role/save-menu"), { data });
+  return http.request<ResultTable>("post", baseApiUrl("/system/v1/role/save-menu"), {data});
 };
 
 /** 系统管理-用户管理-获取所有角色列表 */
 export const getAllRoleList = () => {
-  return http.request<Result>("get",  baseApiUrl("/system/v1/role//list-all"));
+  return http.request<Result>("get", baseApiUrl("/system/v1/role//list-all"));
 };
 
 

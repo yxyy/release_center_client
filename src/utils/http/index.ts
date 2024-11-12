@@ -13,6 +13,7 @@ import { stringify } from "qs";
 import NProgress from "../progress";
 import {getToken, formatToken, removeToken} from "@/utils/auth";
 import { useUserStoreHook } from "@/store/modules/user";
+import {T} from "@vueuse/motion/dist/shared/motion.5ee44005";
 
 // 相关配置请参考：www.axios-js.com/zh-cn/docs/#axios-request-config-1
 const defaultConfig: AxiosRequestConfig = {
@@ -204,10 +205,10 @@ class PureHttp {
 
   /** 通用请求工具函数 */
   public request<T>(
-    method: RequestMethods,
+    method: string,
     url: string,
-    param?: AxiosRequestConfig,
-    axiosConfig?: PureHttpRequestConfig
+    param?,
+    axiosConfig?: { headers: { "Content-Type": string } }
   ): Promise<T> {
     const config = {
       method,
